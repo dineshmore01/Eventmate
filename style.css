@@ -24,12 +24,26 @@ body {
     color: #ffffff; /* White text */
 }
 
-.top img {
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    margin-left: 10px;
+    border-radius: 6px;
+}
+
+.button img {
+    padding: 8px;
+}
+
+.profile img {
     height: 32px;
     width: 32px;
     margin-right: 10px;
     border-radius: 20px;
 }
+
 
 .container {
     display: flex;
@@ -47,9 +61,9 @@ body {
 }
 
 .nav > div { /* Applied to the new div elements in .nav */
-    color: #ffffff; /* White text */
+    color: #979797; /* White text */
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     padding: 14px 0;
     border-radius: 10px;
@@ -57,6 +71,10 @@ body {
     width: 220px;
     background-color: #2c2c2c; /* Darker background for each nav item */
     transition: background-color 0.3s ease;
+}
+
+.nav > div img {
+    color: #979797;
 }
 
 .nav > div:hover {
