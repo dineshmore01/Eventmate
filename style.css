@@ -91,6 +91,9 @@ body {
     width: calc(100% - 251px); /* Full width minus .nav */
     overflow-y: auto;
 }
+.container :hover{
+    color: #0066cc;
+}
 
 .title-show {
     display: flex;
@@ -106,6 +109,7 @@ body {
 
 .show {
     color: white;
+    cursor: pointer;
 }
 
 .section1, .section2, .section3 {
@@ -131,3 +135,5 @@ body {
 .cards1:hover, .cards2:hover, .cards3:hover {
     background-color: #3399ff; /* Lighter blue on hover */
 }
+
+
