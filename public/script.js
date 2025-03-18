@@ -162,7 +162,7 @@ button.addEventListener('click', () => {
 
 
 
-// when click on club , then open the profile
+// when click on club , then open the club.html
 document.getElementsByClassName('cards1')[0].addEventListener('click', () => {
     window.location.href = "clubs.html";
 })
