@@ -4,4 +4,5 @@ function showForm(role) {
     
     document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
     document.getElementById(role + "-tab").classList.add("active");
+    document.querySelector('.container').style.Top = '15px';
 }
