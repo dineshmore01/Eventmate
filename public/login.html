@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Role-Based Login & Registration</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tab-container">
+            <div id="student-tab" class="tab active" onclick="showForm('student')">Student</div>
+            <div id="teacher-tab" class="tab" onclick="showForm('teacher')">Teacher</div>
+            <div id="owner-tab" class="tab" onclick="showForm('owner')">Club Owner</div>
+        </div>
+        
+        <!-- Login Forms -->
+        <div id="student-form" class="form-container active">
+            <h2>Student Login</h2>
+            <form id="student-form-login">
+                <input type="email" name="email" class="input-field" placeholder="Email" required>
+                <input type="password" name="password" class="input-field" placeholder="Password" required>
+                <button type="submit" class="btn">Login</button>
+                <button class="btn" type="button" onclick="showForm('register')">New Registration</button>
+            </form>
+        </div>
+
+        <div id="teacher-form" class="form-container">
+            <h2>Teacher Login</h2>
+            <form id="teacher-form-login">
+                <input type="email" name="email" class="input-field" placeholder="Email" required>
+                <input type="password" name="password" class="input-field" placeholder="Password" required>
+                <button type="submit" class="btn">Login</button>
+                <button class="btn" type="button" onclick="showForm('register')">New Registration</button>
+            </form>
+        </div>
+
+        <div id="owner-form" class="form-container">
+            <h2>Club Owner Login</h2>
+            <form id="owner-form-login">
+                <input type="email" name="email" class="input-field" placeholder="Email" required>
+                <input type="password" name="password" class="input-field" placeholder="Password" required>
+                <input type="text" name="clubName" class="input-field" placeholder="Club Name" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div id="register-form" class="form-container">
+            <h2>New Registration</h2>
+            <form id="registration-form">
+                <input type="text" name="fullName" class="input-field" placeholder="Full Name" required>
+                <input type="text" name="rollNumber" class="input-field" placeholder="Roll Number" required>
+                <input type="tel" name="phoneNumber" class="input-field" placeholder="Phone Number" required>
+                <input type="email" name="email" class="input-field" placeholder="Email" required>
+                <input type="text" name="address" class="input-field" placeholder="Address" required>
+                <input type="text" name="branch" class="input-field" placeholder="Branch" required>
+                <input type="text" name="division" class="input-field" placeholder="Division" required>
+                <select name="role" class="input-field1" required>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
+                <input type="password" name="password" class="input-field" placeholder="Password" required>
+                <button type="submit" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
