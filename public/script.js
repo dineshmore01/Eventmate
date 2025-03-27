@@ -62,17 +62,6 @@ button.addEventListener('click', () => {
 
 
 // Sliding Window
-// document.addEventListener('DOMContentLoaded', () => {
-//     const sliderTrack = document.querySelector('.slider-track');
-    
-//     sliderTrack.addEventListener('animationiteration', () => {
-//         sliderTrack.style.animation = 'none';
-//         void sliderTrack.offsetWidth;
-//         sliderTrack.style.animation = 'slide 10s linear infinite';
-//     });
-// });
-
-// Sliding Window
 document.addEventListener('DOMContentLoaded', () => {
     const sliderTrack = document.querySelector('.slider-track');
     const images = sliderTrack.querySelectorAll('img');
@@ -152,16 +141,24 @@ document.querySelector('.home').addEventListener('click', () => {
     window.location.href = "index.html";
 });
 
+// All Clubs Button
 document.querySelector('.all-clubs').addEventListener('click', () => {
     window.location.href = "allClubs.html";
 });
 
+// Up-Coming Button
 document.querySelector('.future-event').addEventListener('click', () => {
     window.location.href = "events.html";
 });
 
+// Join Club Button
 document.querySelector('.join').addEventListener('click', () => {
     window.location.href = "recruitments.html";
+});
+
+// About Button
+document.querySelector('.about').addEventListener('click', () => {
+    window.location.href = "about.html";
 });
 
 // Club card click
