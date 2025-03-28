@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+
+    <div style="margin-top: 50px;">
+        <div class="profile-container" style="width: 400px;">
+            <div class="profile-pic-container">
+                <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profilePic" style="height: 150px; width: 150px; border-radius: 85px; justify-content: center;">
+                <input type="file" id="profileImageUpload" accept="image/*" onchange="previewImage(event)">
+            </div>
+            <h2><input type="text" id="username" value="Club Name" disabled style="font-size: 24px; border: none; background: transparent; text-align: center; width: 200px;"></h2>
+
+            <div class="profile-info">
+                <div><p><strong>Club ID: </strong><input type="text" id="roll" value="123456" disabled style="width: 200px;"></p></div>
+                <div><p><strong>Club Type: </strong><input type="text" id="branch" value="Technical or Non Technical" disabled style="width: 200px;"></p></div>
+                <div><p><strong>Club Head: </strong><input type="text" id="division" value="Owner name" disabled style="width: 200px;"></p></div>
+                <div><p><strong>Faculty-Coordinator: </strong><input type="email" id="email" value="Faculty-Coordinator Name" disabled style="width: 200px;"></p></div>
+                <div><p><strong>Insta ID: </strong><input type="text" id="phone" value="link" disabled style="width: 200px;"></p></div>
+            </div>
+
+            <div class="btn-container">
+                <button class="btn" id="editBtn" onclick="editProfile()">Edit</button>
+                <button class="btn" id="saveBtn" onclick="saveProfile()" style="display: none;">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function editProfile() {
+            let inputs = document.querySelectorAll(".profile-info input, #username");
+            inputs.forEach(input => input.disabled = false);
+            document.getElementById("profileImageUpload").style.display = "block";
+            document.getElementById("editBtn").style.display = "none";
+            document.getElementById("saveBtn").style.display = "inline-block";
+        }
+
+        function saveProfile() {
+            let inputs = document.querySelectorAll(".profile-info input, #username");
+            inputs.forEach(input => input.disabled = true);
+            document.getElementById("profileImageUpload").style.display = "none";
+            document.getElementById("editBtn").style.display = "inline-block";
+            document.getElementById("saveBtn").style.display = "none";
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("profilePic").src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+</body>
+</html>
