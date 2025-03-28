@@ -62,62 +62,71 @@ button.addEventListener('click', () => {
 
 
 // Sliding Window
-// document.addEventListener('DOMContentLoaded', () => {
-//     const sliderTrack = document.querySelector('.slider-track');
-    
-//     sliderTrack.addEventListener('animationiteration', () => {
-//         sliderTrack.style.animation = 'none';
-//         void sliderTrack.offsetWidth;
-//         sliderTrack.style.animation = 'slide 10s linear infinite';
-//     });
-// });
-
-// Sliding Window
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     const sliderTrack = document.querySelector('.slider-track');
-    const images = sliderTrack.querySelectorAll('img');
-    const totalImages = images.length;
-    const imageWidth = images[0].clientWidth + 20; // Including margin-right
+    const slides = sliderTrack.children;
+    const prevButton = document.querySelector('.slider-btn.left');
+    const nextButton = document.querySelector('.slider-btn.right');
+    
+    // Clone first slide for infinite transition
+    const cloneSlide = slides[0].cloneNode(true);
+    sliderTrack.appendChild(cloneSlide);
+    
+    const slideWidth = slides[0].offsetWidth;
     let currentIndex = 0;
-    let animationTimeout;
+    let autoSlideTimeout;
 
-    // Set initial state
-    sliderTrack.style.animation = 'none';
-    sliderTrack.style.transform = 'translateX(0)';
+    function startAutoSlide() {
+        autoSlideTimeout = setTimeout(nextSlide, 3000);
+    }
 
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalImages;
-        const translateValue = -currentIndex * imageWidth;
-        
-        // Apply transition
-        sliderTrack.style.transition = 'transform 0.5s linear';
-        sliderTrack.style.transform = `translateX(${translateValue}px)`;
+        currentIndex++;
+        sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
 
-        // Reset position after full cycle (when last image reaches end)
-        if(currentIndex === totalImages - 1) {
-            setTimeout(() => {
-                sliderTrack.style.transition = 'none';
-                sliderTrack.style.transform = 'translateX(0)';
-                void sliderTrack.offsetWidth; // Trigger reflow
-            }, 2000);
+    function prevSlide() {
+        if (currentIndex === 0) {
+            // Jump to last real slide without transition
+            sliderTrack.style.transition = 'none';
+            currentIndex = slides.length - 1;
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+            void sliderTrack.offsetWidth; // Trigger reflow
+            
+            // Animate to previous slide
+            sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+            currentIndex--;
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        } else {
+            currentIndex--;
+            sliderTrack.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
         }
     }
 
-    // Start the slider after initial 2 seconds
-    setTimeout(() => {
+    sliderTrack.addEventListener('transitionend', function() {
+        // Handle infinite loop for next button
+        if (currentIndex === slides.length - 1) {
+            sliderTrack.style.transition = 'none';
+            currentIndex = 0;
+            sliderTrack.style.transform = 'translateX(0)';
+            void sliderTrack.offsetWidth;
+            sliderTrack.style.transition = 'transform 0.5s ease-in-out';
+        }
+        startAutoSlide();
+    });
+
+    prevButton.addEventListener('click', function() {
+        clearTimeout(autoSlideTimeout);
+        prevSlide();
+    });
+
+    nextButton.addEventListener('click', function() {
+        clearTimeout(autoSlideTimeout);
         nextSlide();
-        animationTimeout = setInterval(nextSlide, 2000);
-    }, 2000);
-
-    // Pause on hover
-    sliderTrack.addEventListener('mouseenter', () => {
-        clearInterval(animationTimeout);
-        sliderTrack.style.transition = 'none';
     });
 
-    sliderTrack.addEventListener('mouseleave', () => {
-        animationTimeout = setInterval(nextSlide, 2000);
-    });
+    // Start auto-slide
+    startAutoSlide();
 });
 
 
@@ -147,21 +156,30 @@ document.querySelector('.logout').addEventListener('click', () => {
     });
 });
 
+
 // Navigation event listeners (fixed using class selectors)
 document.querySelector('.home').addEventListener('click', () => {
     window.location.href = "index.html";
 });
 
+// All Clubs Button
 document.querySelector('.all-clubs').addEventListener('click', () => {
     window.location.href = "allClubs.html";
 });
 
+// Up-Coming Button
 document.querySelector('.future-event').addEventListener('click', () => {
     window.location.href = "events.html";
 });
 
+// Join Club Button
 document.querySelector('.join').addEventListener('click', () => {
     window.location.href = "recruitments.html";
+});
+
+// About Button
+document.querySelector('.about').addEventListener('click', () => {
+    window.location.href = "about.html";
 });
 
 // Club card click
@@ -173,3 +191,15 @@ document.querySelector('.cards1').addEventListener('click', () => {
 document.querySelector('.cards2').addEventListener('click', () => {
     window.location.href = "pastEvents.html";
 });
+
+document.querySelector('.past-events').addEventListener('click', () => {
+    window.location.href = "pastEvents.html";
+});
+
+document.querySelector('.account').addEventListener('click', () => {
+    window.location.href = "profile.html";
+})
+
+document.querySelector('.profile').addEventListener('click', () => {
+    window.location.href = "profile.html";
+})

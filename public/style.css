@@ -213,6 +213,15 @@ body {
     position: absolute;
     left: 0;
     height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-track > div {
+    width: 1210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
 }
 
 .slider-track img {
@@ -223,6 +232,51 @@ body {
     border-radius: 10px;
     flex-shrink: 0;
 }
+
+.sliding-text {
+    margin: 20px;
+    height: 260px;
+    padding: 30px;
+    border-radius: 12px;
+    font-size: 20px;
+    color: #00FFFF;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255,0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.sliding-text > h1, .sliding-text > h2 ,.sliding-text > h3, .sliding-text > h4 {
+    margin: 12px 0;
+}
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 100%;
+    font-size: 18px;
+    z-index: 10;
+}
+
+.slider-btn.left {
+    left: 10px;
+}
+
+.slider-btn.right {
+    right: 10px;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+
 
 .title {
     margin-top: 10px;
@@ -258,7 +312,7 @@ body {
 }
 
 .section3 {
-    height: 620px;
+    height: 420px;
 }
 
 .cards1, .cards2, .cards3, .cards4 {
@@ -411,7 +465,6 @@ body {
 
 /* Footer */
 footer {
-    margin-top: 60px;
     padding: 25px;
     background: linear-gradient(to right, #2b0752, #0d295a);
     text-align: center;
