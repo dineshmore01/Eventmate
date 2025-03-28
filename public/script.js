@@ -62,7 +62,11 @@ button.addEventListener('click', () => {
 
 
 // Sliding Window
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', function() {
+=======
+document.addEventListener('DOMContentLoaded', () => {
+>>>>>>> 49d307d79b95cf5016dd691480d8ef7cc17584b6
     const sliderTrack = document.querySelector('.slider-track');
     const slides = sliderTrack.children;
     const prevButton = document.querySelector('.slider-btn.left');
@@ -191,6 +195,7 @@ document.querySelector('.cards1').addEventListener('click', () => {
 document.querySelector('.cards2').addEventListener('click', () => {
     window.location.href = "pastEvents.html";
 });
+<<<<<<< HEAD
 
 document.querySelector('.past-events').addEventListener('click', () => {
     window.location.href = "pastEvents.html";
@@ -203,3 +208,5 @@ document.querySelector('.account').addEventListener('click', () => {
 document.querySelector('.profile').addEventListener('click', () => {
     window.location.href = "profile.html";
 })
+=======
+>>>>>>> 49d307d79b95cf5016dd691480d8ef7cc17584b6

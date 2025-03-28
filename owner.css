@@ -5,9 +5,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 10px;
 }
-
 .profile-container {
     background: #1e2a44; 
     padding: 20px;
@@ -15,7 +14,7 @@ body {
     box-shadow: 
         0 0 20px rgba(0, 123, 255, 0.3), 
         inset 0 0 2px rgba(255, 255, 255, 0.1);
-    width: 340px; 
+    width: 640px; 
     text-align: center;
     transition: all 0.4s ease-out;
     position: relative;
@@ -193,8 +192,4 @@ body {
     .profile-info input:enabled:not([readonly]) {
         border: 1px solid #40c4ff;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 49d307d79b95cf5016dd691480d8ef7cc17584b6
