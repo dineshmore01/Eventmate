@@ -8,7 +8,7 @@ body {
     line-height: 1.5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(45deg, #E8ECEF 0%, #f0f4f7 100%);
-    color: #000000;
+    color: white;
 }
 
 .top {
@@ -471,4 +471,115 @@ footer {
     color: #FFFFFF;
     border-top: 1px solid rgba(106,17,203,0.4);
     box-shadow: 0 -4px 15px rgba(43,7,82,0.3);
+}
+
+
+/* Overlay Styles */
+.rating-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Rating Box */
+.rating-box {
+    background: linear-gradient(135deg, #2f124d, #100d4b);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+    text-align: center;
+    width: 480px;
+    color: #ffffff;
+    border: 2px solid red;
+}
+
+.rating-box h3 {
+    margin: 0 0 2rem 0;
+    font-size: 2.2rem;
+    color: #e0e0e0;
+}
+
+/* Stars Container */
+.stars-container {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.star {
+    font-size: 40px;
+    cursor: pointer;
+    color: #4a4a4a;
+    transition: all 0.2s ease;
+}
+
+.star:hover {
+    transform: scale(1.3);
+}
+
+.star.selected {
+    color: #ffd700;
+}
+
+/* Buttons Container */
+.buttons-container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.action-btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.submit-btn {
+    background: #00b894;
+    color: #ffffff;
+}
+
+.submit-btn:disabled {
+    background: #3a3a3a;
+    color: #6a6a6a;
+    cursor: not-allowed;
+}
+
+.cancel-btn {
+    background: #ff7675;
+    color: #ffffff;
+}
+
+.action-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.success-message {
+    text-align: center;
+    padding: 20px;
+    color: #4CAF50;
+}
+
+.success-message h3 {
+    margin: 0 0 10px 0;
+}
+
+.success-message p {
+    margin: 0;
+    font-size: 1.1em;
 }
